@@ -1,0 +1,19 @@
+<!-- Mostrar NavBar solo si no es login/register -->
+<ng-container *ngIf="!esVistaPublica()">
+  <app-nav-bar></app-nav-bar>
+</ng-container>
+
+<router-outlet></router-outlet>
+
+<!-- Contenido de la ruta -->
+<div class="flex justify-content-center" style="padding: 20px;">
+  <router-outlet></router-outlet>
+  <p-toast></p-toast>
+</div>
+
+<!-- Footer u otro layout común (opcional) -->
+<footer *ngIf="showLayout">
+  <div class="footer-content">
+    <p>© 2025 Eventos Espectaculares. Todos los derechos reservados.</p>
+  </div>
+</footer>

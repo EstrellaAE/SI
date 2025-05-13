@@ -1,0 +1,56 @@
+/* Contenedor */
+.search-container {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  /* Input de búsqueda */
+  .search-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  /* Lista de resultados */
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  /* Estilo de cada elemento */
+  ul li {
+    background: #f4f4f4;
+    margin: 10px 0;
+    padding: 12px;
+    border-radius: 5px;
+    text-align: center;
+    transition: background 0.3s;
+  }
+  
+  ul li:hover {
+    background: #ddd;
+  }
+  
+  /* Estilo de los enlaces */
+  ul li a {
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    color: #007bff;
+    transition: color 0.3s;
+  }
+  
+  ul li a:hover {
+    color: #0056b3;
+  }
+  
+  /* Mensaje de "No resultados" */
+  p {
+    font-size: 16px;
+    color: #666;
+  }
+  

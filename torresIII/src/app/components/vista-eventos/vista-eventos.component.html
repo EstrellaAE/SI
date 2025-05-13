@@ -1,0 +1,24 @@
+<section class="hero">
+    <div class="container text-center">
+      <h1 class="head">Cartelera de Eventos</h1>
+      <input type="text" [(ngModel)]="searchKeyword" (keyup.enter)="filterEvents()" placeholder="🔎 Buscar evento..." class="search-input" />
+      <button (click)="filterEvents()" class="search-button">Buscar</button>
+    </div>
+  </section>
+  
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-4" *ngFor="let event of filteredEvents">
+          <div class="card h-100">
+            <img src="assets/event-placeholder.jpg" class="card-img-top" alt="{{event.nombreEvento}}" />
+            <div class="card-body">
+              <h5 class="card-title">{{event.nombreEvento}}</h5>
+              <p class="card-text">{{event.description}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  

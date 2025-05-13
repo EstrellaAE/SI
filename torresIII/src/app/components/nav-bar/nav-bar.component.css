@@ -1,0 +1,168 @@
+/* 🎨 Estilos generales */
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to right, #6dd5ed, #2193b0); /* 🔵 Degradado */
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+/* 🔹 Navbar */
+.navbar {
+  background: linear-gradient(to right, #93a3a74d, #93a3a74d) !important;
+  padding: 15px;
+  border-bottom: 2px solid white;
+}
+
+.navbar-brand {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: white !important;
+}
+
+.navbar-nav .nav-link {
+  color: white !important;
+  font-weight: bold;
+  transition: 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ffcc00 !important;
+  transform: scale(1.05);
+}
+
+/* 📌 Dropdown Menu */
+.navbar-nav .dropdown-menu {
+  background: #93a3a74d;
+  border: none;
+  border-radius: 8px;
+}
+
+.navbar-nav .dropdown-item {
+  color: white !important;
+  transition: background 0.3s ease;
+}
+
+.navbar-nav .dropdown-item:hover {
+  background: #ffcc00;
+  color: black !important;
+}
+
+/* 🔍 Buscador */
+.search-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 200px;
+  transition: 0.3s;
+  color: black;
+}
+
+.search-input:focus {
+  outline: none;
+  box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.6);
+}
+
+.search-button {
+  margin-left: 10px;
+  padding: 10px 15px;
+  border: none;
+  background: #ffcc00;
+  color: #333;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.search-button:hover {
+  background: #ff9900;
+}
+
+/* 📍 Botón Mapa del Sitio */
+.site-map-button {
+  display: inline-block;
+  background: rgba(127, 142, 158, 0.356);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.site-map-button:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* ⬆ Botón "Subir" */
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #ffcc00;
+  color: #333;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.scroll-to-top:hover {
+  background: #ff9900;
+}
+
+/* 📌 Breadcrumb */
+.breadcrumb {
+  list-style: none;
+  display: flex;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+}
+
+.breadcrumb li {
+  margin-right: 10px;
+}
+
+.breadcrumb a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .search-container {
+      position: relative;
+      top: 10px;
+      right: auto;
+      justify-content: center;
+  }
+
+  .search-input {
+      width: 100%;
+  }
+
+  .navbar-nav {
+      text-align: center;
+  }
+
+  .scroll-to-top {
+      bottom: 10px;
+      right: 10px;
+  }
+}

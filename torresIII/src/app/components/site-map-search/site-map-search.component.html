@@ -1,0 +1,23 @@
+<div class="search-container">
+    <h2>Buscador del Mapa del Sitio</h2>
+  
+    <!-- Input del buscador -->
+    <input 
+      type="text" 
+      [(ngModel)]="searchKeyword" 
+      (input)="filterResults()" 
+      placeholder="Buscar en el mapa del sitio..." 
+      class="search-input"
+    />
+  
+    <!-- Resultados filtrados -->
+    <ul *ngIf="filteredResults.length > 0">
+      <li *ngFor="let item of filteredResults">
+        <a [routerLink]="item.link">{{ item.name }}</a>
+      </li>
+    </ul>
+  
+    <!-- Mensaje si no hay resultados -->
+    <p *ngIf="filteredResults.length === 0">No se encontraron resultados.</p>
+  </div>
+  

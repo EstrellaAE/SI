@@ -1,0 +1,81 @@
+<body>
+  <div
+    class="head1 align-items-baseline"
+    style="
+      background: #373f51;
+      padding: 10px;
+      border-radius: 10px 10px 0 0;
+      width: 100%;
+    "
+  >
+    <h5 style="background: transparent; color: white">{{ nombreEvento }}</h5>
+    <p style="margin-left: 20px; color: white">Area de Interes: </p>
+    <select
+      [(ngModel)]="modo"
+      (change)="getParGen(modo)"
+      name="Area de Interes"
+      id=""
+      style="width: 20px; padding: 5px"
+    >
+      <option value="default">default</option>
+      <option
+        [value]="area.nomArea"
+        *ngFor="let area of areaInteresService.areaInteres"
+      >
+        {{ area.nomArea }}
+      </option>
+    </select>
+  </div>
+  <table class="table table-striped table-hover" *ngIf="modo != 'default'">
+    <thead class="thead-dark">
+      <tr>
+        <th>Hombres</th>
+        <th>Mujeres</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <tr *ngFor="let hombre of participantesService.participantesMasc" >
+            <td>- {{ hombre.nomComp }}</td>
+          </tr>
+        </td>
+            <td>
+              <tr *ngFor="let femenino of participantesService.participantesFem">
+                <td>- {{ femenino.nomComp }}</td>
+              </tr>
+            </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="table table-striped table-hover" *ngIf="modo == 'default'">
+    <thead class="thead-dark">
+      <tr>
+        <th>Nombre Completo</th>
+        <th>Fecha Registro</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of participantesService.participantes">
+        <td>{{ item.nombreCompleto }}</td>
+        <td>{{ item.fechaRegistro | fechaEsp }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p-card *ngIf="statsService.statsData" class="statCard primary-200">
+    <h3>Estadísticas del Evento:</h3>
+  
+    <p>Porcentaje Global de Asistencia: {{ statsService.statsData.globalAttendance[0].globalAttendance }}%</p>
+  
+    <p>Porcentaje Por Evento: {{ statsService.statsData.participationByEvent[0].porcentajeParticipacion }}%</p>
+  
+    <p>Porcentaje por Genro Mujeres(F) y Hombres(M):</p>
+    <ul>
+      <li *ngFor="let genero of statsService.statsData.participacionPorGenero">
+        {{ genero.genero }}: {{ genero.porcentaje }}%
+      </li>
+    </ul>
+  </p-card>
+  
+</body>

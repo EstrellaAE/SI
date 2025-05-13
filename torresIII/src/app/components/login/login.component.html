@@ -1,0 +1,19 @@
+<div class="login-wrapper">
+  <div class="login-container">
+    <h2>Iniciar Sesión</h2>
+
+    <input type="email" [(ngModel)]="email" placeholder="Correo electrónico" />
+    <input type="password" [(ngModel)]="password" placeholder="Contraseña" />
+
+    <!-- ✅ Checkbox tipo captcha -->
+    <div class="captcha-box">
+      <input type="checkbox" id="humanCheck" [(ngModel)]="humanVerified" />
+      <label for="humanCheck">✅No soy un robot</label>
+    </div>
+
+    <button (click)="login()">Ingresar</button>
+
+    <p *ngIf="error" class="error-message">{{ error }}</p>
+    <p>¿No tienes una cuenta? <a routerLink="/register">Regístrate aquí</a></p>
+  </div>
+</div>

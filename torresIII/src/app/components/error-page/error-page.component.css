@@ -1,0 +1,50 @@
+.error-container {
+  text-align: center;
+  padding: 50px;
+  background: #2a2a2a;
+  color: white;
+  font-family: 'Arial', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-image {
+  width: 300px;
+  height: auto;
+  animation: shake 1s infinite alternate;
+}
+
+@keyframes shake {
+  0% { transform: rotate(-5deg); }
+  100% { transform: rotate(5deg); }
+}
+
+h1 {
+  font-size: 3rem;
+  margin-top: 10px;
+}
+
+p {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+.home-button {
+  background: #ff4500;
+  color: white;
+  font-size: 1.2rem;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.3s;
+}
+
+.home-button:hover {
+  background: #e63e00;
+}

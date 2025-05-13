@@ -1,0 +1,22 @@
+<div class="site-map-container">
+  <h1 class="title">🗺️ Mapa del Sitio</h1>
+  <p class="subtitle">Encuentra fácilmente lo que buscas</p>
+
+  <!--Buscador -->
+  <div class="search-container">
+    <input type="text" [(ngModel)]="searchKeyword" (keyup.enter)="filterResults()" placeholder="🔎 Busca una sección..." class="search-input" />
+    <button (click)="filterResults()" class="search-button">Buscar</button>
+  </div>
+
+  <!-- Lista de enlaces -->
+  <ul class="site-map-list">
+    <li *ngFor="let item of filteredResults" class="site-map-item">
+      <a [routerLink]="item.link" class="site-map-link">
+        <span class="icon">📍</span> {{ item.name }}
+      </a>
+    </li>
+  </ul>
+
+  <!-- Mensaje si no se encuentran resultados -->
+  <p *ngIf="filteredResults.length === 0" class="no-results">❌ No se encontraron resultados.</p>
+</div>

@@ -1,0 +1,21 @@
+<div class="register-wrapper">
+  <div class="register-container">
+    <h2>Registro de Usuario</h2>
+
+    <input type="email" [(ngModel)]="email" placeholder="Correo electrónico" />
+    <input type="password" [(ngModel)]="password" placeholder="Contraseña" />
+    <input type="password" [(ngModel)]="confirmPassword" placeholder="Confirmar Contraseña" />
+
+    <!-- Checkbox tipo Captcha -->
+    <div class="captcha-box">
+      <input type="checkbox" id="humanCheck" [(ngModel)]="humanVerified" />
+      <label for="humanCheck">✅No soy un robot</label>
+    </div>
+
+    <button (click)="register()">Registrarse</button>
+
+    <p *ngIf="error" class="error-message">{{ error }}</p>
+    <p *ngIf="success" class="success-message">{{ success }}</p>
+    <p>¿Ya tienes una cuenta? <a routerLink="/login">Inicia sesión aquí</a></p>
+  </div>
+</div>

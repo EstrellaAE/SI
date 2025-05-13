@@ -1,0 +1,68 @@
+<body>
+    <div class="container mt-4">
+        <div class="row justify-content-center" style="background: #373f51; color: white; padding: 10px; border-radius: 10px 10px 10px 10px;">
+            <div class="col-md-12">
+                <h2 class="mb-4 text-center" style="background: #373f51; color: white; padding: 10px; border-radius: 10px 10px 0 0;">Registro de Eventos</h2>
+                <form [formGroup]="personaForm" (submit)="aggPersona()">
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" class="form-control" formControlName="nombre" placeholder="Ingrese su nombre">
+                    </div>
+                    <div class="form-group">
+                        <label for="apellidoPaterno" >Apellido Paterno</label>
+                        <input type="text" class="form-control" formControlName="apP" placeholder="Ingrese su apellido paterno">
+                    </div>
+                    <div class="form-group">
+                        <label for="apellidoMaterno">Apellido Materno</label>
+                        <input type="text" class="form-control" formControlName="apM" placeholder="Ingrese su apellido materno">
+                    </div>
+                    <div class="form-group">
+                        <label for="edad">Edad</label>
+                        <input type="number" class="form-control" formControlName="edad" placeholder="Ingrese su edad">
+                    </div>
+                    <div class="form-group">
+                        <label for="genero">Género</label>
+                        <select class="form-control" formControlName="genero">
+                            <option value="">Selecciona tu género</option>
+                            <option value="M">Masculino</option>
+                            <option value="F">Femenino</option>
+                            <option value="O">Otro</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="nomArea">Area Interes</label>
+                        <select class="form-control" name="nomArea" formControlName="nomArea">
+                            <option value="">Seleccionar Area</option>
+                            <option *ngFor="let area of areaInteresService.areaInteres" [value]="area.nomArea"> {{area.nomArea}} </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="correo">Correo</label>
+                        <input type="email" class="form-control" formControlName="correo" placeholder="Ingrese su correo electrónico">
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" class="form-control" formControlName="telefono" placeholder="Ingrese su número de teléfono">
+                    </div>
+                    <div class="form-group">
+                        <label for="cargo">Cargo</label>
+                        <select class="form-control" formControlName="nomCargo">
+                            <option value="">Selecciona tu cargo</option>
+                            <option *ngFor="let cargo of cargoService.cargos" [value]="cargo.nomCargo">{{cargo.nomCargo}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="ciudad">Ciudad</label>
+                        <select class="form-control" formControlName="ciudad">
+                            <option value="" >Selecciona tu Ciudad</option>
+                            <option *ngFor="let ciudad of ciudadService.ciudades" [value]="ciudad.nomCiudad">{{ciudad.nomCiudad}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group mb-4 text-center" style="padding: 15px 0; border-radius: 10px;"> <!-- Añadí la clase "mb-4" para agregar un espacio adicional -->
+                        <button type="submit" class="btn btn-primary btn-block">Registrar Evento</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>

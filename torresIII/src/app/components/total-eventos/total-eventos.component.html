@@ -1,0 +1,57 @@
+<div class="text-end mb-2">
+  <button class="btn btn-warning" (click)="toggleEventos()">
+    {{ mostrarEventos ? 'Ocultar Eventos' : 'Mostrar Eventos' }}
+  </button>
+</div>
+
+<!-- ✅ Mostrar u ocultar tabla de eventos -->
+<table *ngIf="mostrarEventos" class="table table-striped" style="border-radius: 10px; overflow: hidden; background: #373f51; color: white">
+  <thead>
+    <tr>
+      <th>Nombre del Evento</th>
+      <th>Cupo Máximo</th>
+      <th>Fecha</th>
+      <th>Ciudad</th>
+      <th>Área</th>
+      <th>Acción</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of eventosService.eventos">
+      <td (click)="goToPart(item.nombreEvento)">{{ item.nombreEvento }}</td>
+      <td (click)="goToPart(item.nombreEvento)">{{ item.cupoMaximo }}</td>
+      <td (click)="goToPart(item.nombreEvento)">{{ item.fecha | fechaEsp }}</td>
+      <td (click)="goToPart(item.nombreEvento)">{{ item.nomCiudad }}</td>
+      <td (click)="goToPart(item.nombreEvento)">{{ item.nomArea }}</td>
+      <td>
+        <p-button (click)="showDialog(item.nombreEvento)" icon="pi pi-user" label="Inscribirme"></p-button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Dialog -->
+<p-dialog [(visible)]="visible" [breakpoints]="{ '960px': '75vw' }" [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false">
+  <ng-template pTemplate="header">
+    <h3>{{ evento }}</h3>
+  </ng-template>
+
+  <form [formGroup]="registerForm" (ngSubmit)="insPart()">
+    <div class="form-group">
+      <label for="nombre">Nombre</label>
+      <input type="text" class="form-control" formControlName="nombre" id="nombre" placeholder="Ingrese su nombre" />
+    </div>
+    <div class="form-group">
+      <label for="apellidoPaterno">Apellido Paterno</label>
+      <input type="text" class="form-control" formControlName="apP" id="apellidoPaterno" placeholder="Ingrese su apellido paterno" />
+    </div>
+    <div class="form-group">
+      <label for="apellidoMaterno">Apellido Materno</label>
+      <input type="text" class="form-control" formControlName="apM" id="apellidoMaterno" placeholder="Ingrese su apellido materno" />
+    </div>
+
+    <div class="form-group mb-4 text-center" style="padding: 15px 0; border-radius: 10px">
+      <button type="submit" class="btn btn-primary btn-block">Registrar Participante</button>
+    </div>
+  </form>
+</p-dialog>

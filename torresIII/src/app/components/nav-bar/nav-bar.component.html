@@ -1,0 +1,66 @@
+<app-navbar-publica></app-navbar-publica>
+<nav class="navbar navbar-expand-lg" style="background-color: #a9bcdc;">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/">Dark Company</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/regisPersona" routerLinkActive="active">Regístrate</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/totalEventos" routerLinkActive="active">Lista Eventos</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+             aria-expanded="false">
+            Consultas Administrador
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" routerLink="/calendario">Calendario</a></li>
+            <li><a class="dropdown-item" routerLink="/totalEventos">Lista Eventos</a></li>
+            <li><a class="dropdown-item" routerLink="/listEventos">Agregar Eventos</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Botón "Subir" -->
+<button *ngIf="showScrollButton" (click)="scrollToTop()" class="scroll-to-top" aria-label="Volver arriba">
+  ⬆ Subir
+</button>
+
+<!-- Breadcrumbs -->
+<nav class="mt-2">
+  <ul class="breadcrumb">
+    <li *ngFor="let item of breadcrumbItems; let last = last">
+      <a *ngIf="!last" [routerLink]="item.link">{{ item.name }}</a>
+      <span *ngIf="last">{{ item.name }}</span>
+    </li>
+  </ul>
+
+  <button *ngIf="showBackButton" (click)="goBack()" class="back-button">⬅ Regresar</button>
+  <a routerLink="/site-map" class="site-map-button">📍 Mapa del Sitio</a>
+</nav>
+
+<!-- Buscador -->
+<div class="search-container mt-2">
+  <input 
+    type="text" 
+    [(ngModel)]="searchKeyword" 
+    (keyup.enter)="searchAndNavigate()"
+    placeholder="Buscar..."
+    class="search-input"
+  />
+  <button (click)="searchAndNavigate()" class="search-button">🔍</button>
+</div>

@@ -1,0 +1,98 @@
+/* 🌟 Tabla de eventos */
+table.table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: #2e2e3a;
+    border-radius: 10px;
+    overflow: hidden;
+    color: white;
+  }
+  
+  table.table th,
+  table.table td {
+    padding: 12px 15px;
+    text-align: center;
+  }
+  
+  table.table th {
+    background-color: #3a3f51;
+    color: #ffd700;
+    font-weight: bold;
+  }
+  
+  /* 🖱️ Cambios al pasar el mouse por filas */
+  table.table tbody tr:hover {
+    background-color: #444b5e;
+    cursor: pointer;
+  }
+  
+  /* ✨ Botón mostrar/ocultar */
+  .btn-warning {
+    background-color: #ffc107;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    color: #333;
+    transition: 0.3s ease;
+  }
+  
+  .btn-warning:hover {
+    background-color: #ff9800;
+    color: white;
+  }
+  
+  /* 🪟 Diálogo de PrimeNG personalizado */
+  p-dialog ::ng-deep .p-dialog {
+    background-color: #f9f9f9;
+    color: #333;
+    border-radius: 8px;
+  }
+  
+  p-dialog ::ng-deep .p-dialog-header {
+    background-color: #2196f3;
+    color: white;
+    font-weight: bold;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+  
+  /* 📋 Formulario del modal */
+  form .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  form .form-control {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 100%;
+  }
+  
+  form button.btn-primary {
+    background-color: #007bff;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    width: 100%;
+  }
+  
+  form button.btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  /* ✅ Responsive para dispositivos pequeños */
+  @media screen and (max-width: 768px) {
+    table.table th, table.table td {
+      font-size: 14px;
+      padding: 8px;
+    }
+  
+    .btn-warning {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+  }
+  
